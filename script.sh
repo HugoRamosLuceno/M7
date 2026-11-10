@@ -55,10 +55,10 @@ sudo cp /etc/network/interfaces /etc/network/interfaces.bak
     printf "\tgateway %s\n" "$GATEWAY"
 } | sudo tee /etc/network/interfaces > /dev/null
 
-echo ">>> Restarting networking (stop, wait 5s, start)..."
 sudo systemctl stop networking
+echo ">>> Restarting networking (stop, wait 5s, start)..."
 sleep 5
-sudo systemctl start networking
+sudo systemctl restart networking
 
 # ---------- 3. /etc/resolv.conf ----------
 echo ">>> Configuring /etc/resolv.conf..."
